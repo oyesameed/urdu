@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Custom fonts */
+@font-face {
+    font-family: 'Divangiry';
+    src: local('divangiry'), local('divangiry'),
+        url('../fonts//divangiry.woff') format('woff'),
+        url('../fonts//divangiry.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Qamri';
+    src: local('qamri'), local('qamri'),
+        url('../fonts//qamri.woff') format('woff'),
+        url('../fonts//qamri.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Tasmeem';
+    src: local('tasmeem'), local('tasmeem'),
+        url('../fonts//tasmeem.woff') format('woff'),
+        url('../fonts//tasmeem.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Kamran';
+    src: local('kamran'), local('kamran'),
+        url('../fonts//kamran.woff') format('woff'),
+        url('../fonts//kamran.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Abuzar';
+    src: local('abuzar'), local('abuzar'),
+        url('../fonts//abuzar.woff') format('woff'),
+        url('../fonts//abuzar.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Sadaf';
+    src: local('sadaf'), local('sadaf'),
+        url('../fonts//sadaf.woff') format('woff'),
+        url('../fonts//sadaf.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Ubaid';
+    src: local('ubaid'), local('ubaid'),
+        url('../fonts//ubaid.woff') format('woff'),
+        url('../fonts//ubaid.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Tehreeri';
+    src: local('tehreeri'), local('tehreeri'),
+        url('../fonts//tehreeri.woff') format('woff'),
+        url('../fonts//tehreeri.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Qalam';
+    src: local('qalam'), local('qalam'),
+        url('../fonts//qalam.woff') format('woff'),
+        url('../fonts//qalam.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Shekastah';
+    src: local('shekastah'), local('shekastah'),
+        url('../fonts//shekastah.woff') format('woff'),
+        url('../fonts//shekastah.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
