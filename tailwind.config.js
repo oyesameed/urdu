@@ -14,20 +14,8 @@ module.exports = {
 		// Fonts
 		fontFamily: {
 			
-      // English
-      sans: ['Mont', 'sans-serif'],
+			sans: ['Mont', 'sans-serif']
 			
-      // Urdu
-      divangiry: ['Divangiry'],
-			qamri: ['Qamri'],
-      tasmeem: ['tasmeem'],
-      kamran: ['kamran'],
-      abuzar: ['Abuzar'],
-			sadaf: ['Sadaf'],
-      ubaid: ['Ubaid'],
-      tehreeri: ['Tehreeri'],
-      qalam: ['Qalam'],
-      shekastah: ['Shekastah']
 		},
 
 		// Font size
@@ -64,16 +52,7 @@ module.exports = {
 			// Accent
 			accent: {
 				1: '#00FFFF',
-			},
-
-			// Danger 
-			'danger': '#95323E',
-			'success': '#198046'
-		},
-
-		data: {
-			'open': 'state=open',
-			'closed': 'state=closed'
+			}
 		},
 
 		extend: {
@@ -86,40 +65,11 @@ module.exports = {
 					'100%': {
 						'opacity': '1'
 					},
-				},
-				'loading': {
-					'0%, 100%': {
-						'transform': 'translate(0px, 0)'
-					},
-					'50%': {
-						'transform': 'translate(150px, 0)',
-						'background-color': '#ededed',
-						'width': '20px'
-					}
-				},
-				'slide-down': {
-					'0%': {
-						'height': 0
-					},
-					'100%': {
-						'height': 324
-					}
-				},
-				'slide-up': {
-					'0%': {
-						'height': 324
-					},
-					'100%': {
-						'height': 0
-					}
 				}
 				
 			},
 			animation: {
-					'fade-in': 'fade-in 0.5s ease-out',
-					'loading': 'loading 1s cubic-bezier(0.17, 0.37, 0.43, 0.67) infinite',
-					'slide-down': 'slide-down 300ms ease-in-out',
-					'slide-up': 'slide-up 300ms ease-in-out'
+				'fade-in': 'fade-in 0.5s ease-out'
 			}
 		},
 	},
