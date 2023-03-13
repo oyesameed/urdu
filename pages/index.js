@@ -65,7 +65,7 @@ const Home = () => {
         <input name='text' className='py-1 text-right h-auto md:px-6 bg-gray-2 md:w-3/6 placeholder:text-white-2 outline-none box-border text-lg rounded-sm align-middle text-white-2 border border-white-2 border-opacity-10 focus:border-opacity-20 ' type="text" onChange={onChange} value={value}/>
           
         {/* Color picker */}
-        <button className="rounded-sm w-full md:w-auto text-lg bg-gray-3 px-8 py-1 mt-2" onClick={() => toggle(!isOpen)}>رنگ</button>
+        <button className="rounded-sm w-full md:w-auto text-md bg-gray-3 px-8 py-1 mt-2" onClick={() => toggle(!isOpen)}>Color</button>
 
         {/* Selector */}
         {isOpen ? <HexColorPicker color={color} onChange={setColor} /> : ""}
