@@ -79,7 +79,26 @@ const Home = () => {
         
         {/* Display fonts */}
         <div className='mt-20 flex text-right flex-col overflow-y-auto w-full h-full'>
-          <div style={{color: color}} className={`text-h1 cursor-pointer border-b-gray-5 py-4 border-b truncate font-['Qamri']`} onClick={() => download("Qamri", value, color)}>{value}</div>
+          <div className='flex items-center flex-row-reverse justify-between w-full border-b-gray-5 py-4 border-b'>
+            
+            {/* Text */}
+            <div 
+              style={{color: color}} 
+              className={`text-h1 cursor-pointer truncate font-['Qamri']`} 
+              onClick={() => download("Qamri", value, color)}>
+                {value}
+            </div>
+            
+            {/* Actions */}
+            <div className='flex gap-2'>
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clipboard"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+              </span>
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-download"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              </span>
+            </div>
+          </div>
           <div style={{color: color}} className={`text-h1 cursor-pointer border-b-gray-5 py-4 border-b truncate font-['Divangiry']`} onClick={() => download("Divangiry", value, color)}>{value}</div>
           <div style={{color: color}} className={`text-h1 cursor-pointer border-b-gray-5 py-4 border-b truncate font-['Tasmeem']`} onClick={() => download("Tasmeem", value, color)}>{value}</div>
           <div style={{color: color}} className={`text-h1 cursor-pointer border-b-gray-5 py-4 border-b truncate font-['Kamran']`} onClick={() => download("Kamran", value, color)}>{value}</div>
