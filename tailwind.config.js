@@ -1,5 +1,3 @@
-// Configuration for Tailwind
-
 module.exports = {
 
 	content: [
@@ -13,9 +11,7 @@ module.exports = {
 
 		// Fonts
 		fontFamily: {
-			
 			sans: ['Mont', 'sans-serif']
-			
 		},
 
 		// Font size
@@ -31,30 +27,6 @@ module.exports = {
 			'h4': '1rem'
 		},
 
-		// Colors
-		colors: {
-			
-			// Gray
-			gray: {
-				1 : '#121217', 
-				2 : '#17171C', 
-				3 : '#1B1B22', 
-				4 : '#202027', 
-				5 : '#232329'
-			},
-
-			// White
-			white: {
-				1 : '#EDEDED',
-				2 : '#8C8C8C',
-			},
-
-			// Accent
-			accent: {
-				1: '#00FFFF',
-			}
-		},
-
 		extend: {
 
 			keyframes: {
@@ -66,13 +38,12 @@ module.exports = {
 						'opacity': '1'
 					},
 				}
-				
 			},
 			animation: {
 				'fade-in': 'fade-in 0.5s ease-out'
 			}
 		},
 	},
-	
+
 	plugins: [],
 }

@@ -1,99 +1,169 @@
-// Home page of the app
-
 // Imports
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import text2png from 'text2png';
+import { SwatchesPicker } from 'react-color';
 
-// Png converter
-var text2png = require('text2png');
+// Import components
+import Tile from '../ui/tile';
 
-// Color picker
-import { HexColorPicker } from "react-colorful";
-
-// Component defination
+// Home component
 const Home = () => {
 
-  // Value of input
-  const [value, setValue] = useState("");
+    // List of available fonts
+    const fonts = ["Qamri", "Divangiry", "Tasmeem", "Kamran", "Abuzar", "Sadaf", "Ubaid", "Tehreeri", "Qalm", "Shekastah"];
 
-  // Color picker toggle
-  const [isOpen, toggle] = useState(false);
+    // State to store user input text
+    const [value, setValue] = useState("");
 
-  // Color
-  const [color, setColor] = useState("#ededed");
+    // State to store the selected color
+    const [color, setColor] = useState("rgb(0, 0, 0)");
 
-  // On input change
-  function onChange (e) {
+    // State to toggle of the color picker
+    const [showColorPicker, setShowColorPicker] = useState(false);
 
-    // Set value in state
-    setValue(e.target.value);
-  }
+    // Function to handle changes in the text input
+    const onChange = (e) => setValue(e.target.value);
 
-  useEffect(() => {
-    
-  }, [color]);
+    // Function to generate and download the text image
+    const download = async (font, value, color) => {
 
-  function download(font, value, color) {
+        // Check if the value is empty
+        if (!value) return alert("Please enter text before downloading!");
 
-    // Create a link element
-    const a = document.createElement("a");
-    
-    // Set the link URL and download filename
-    a.href = text2png(value, { 
-      font: '500px '+ font,
-      localFontName: font,
-      color: color,
-      output: 'dataURL'
-    });
-    
-    // Download
-    a.download = `${font}.png`;
-    
-    // Click the link programmatically to trigger the download
-    a.click();
-  }
-  
-  return (
-    <div className='flex-col h-ful absolute text-white-1 px-8 md:px-16 flex bg-gray-1 w-full gap-8 md:gap-16 items-center'>
-      
-      {/* Header */}
-      <div className='flex items-center flex-row-reverse justify-between w-full py-4'>
-        <div className={`text-lg font-['Divangiry'] relative`}>ت خ ی ل</div>
-        <div className='text-gray-1'>About</div>
-      </div>
+        // Convert color object to RGBA string
+        const rgbaColor = `rgba(${color.r}, ${color.g}, ${color.b}, ${color.a})`;
 
-      {/* Menu */}
-      <div className='flex items-end md:border-b border-white-2 border-opacity-20 md:items-center flex-col md:flex-row-reverse md:justify-between w-full'>
-        
-        {/* Input */}
-        <input name='text' placeholder='یہاں ٹائپ کریں' className='py-1 text-right h-auto md:px-6 bg-gray-1 w-full placeholder:text-white-2 placeholder:text-opacity-20 outline-none box-border text-lg rounded-sm align-middle text-white-2 border-b border-white-2 border-opacity-30 md:border-opacity-0  focus:border-opacity-20 ' type="text" onChange={onChange} value={value}/> 
-        
-        {/* Color picker */}
-        <button className="w-fit inline-block md:w-auto text-md bg-gray-1 border border-gray-5 rounded-full px-8 py-1 mt-2" onClick={() => toggle(!isOpen)}>Color</button>
-      </div>
-        
-      {/* Selector */}
-      {isOpen ? <HexColorPicker color={color} onChange={setColor} /> : ""}
-      
-      {/* Inner */}
-      <div className='items-center flex w-full flex-col'>
-        
-        {/* Display fonts */}
-        <div className='mt-20 flex text-right flex-col overflow-y-auto w-full h-full'>
-          <div style={{color: color}} className={`text-h1 cursor-pointer border-b-gray-5 py-4 border-b truncate font-['Qamri']`} onClick={() => download("Qamri", value, color)}>{value}</div>
-          <div style={{color: color}} className={`text-h1 cursor-pointer border-b-gray-5 py-4 border-b truncate font-['Divangiry']`} onClick={() => download("Divangiry", value, color)}>{value}</div>
-          <div style={{color: color}} className={`text-h1 cursor-pointer border-b-gray-5 py-4 border-b truncate font-['Tasmeem']`} onClick={() => download("Tasmeem", value, color)}>{value}</div>
-          <div style={{color: color}} className={`text-h1 cursor-pointer border-b-gray-5 py-4 border-b truncate font-['Kamran']`} onClick={() => download("Kamran", value, color)}>{value}</div>
-          <div style={{color: color}} className={`text-h1 cursor-pointer border-b-gray-5 py-4 border-b truncate font-['Abuzar']`} onClick={() => download("Abuzar", value, color)}>{value}</div>
-          <div style={{color: color}} className={`text-h1 cursor-pointer border-b-gray-5 py-4 border-b truncate font-['Sadaf']`} onClick={() => download("Sadaf", value, color)}>{value}</div>
-          <div style={{color: color}} className={`text-h1 cursor-pointer border-b-gray-5 py-4 border-b truncate font-['Ubaid']`} onClick={() => download("Ubaid", value, color)}>{value}</div>
-          <div style={{color: color}} className={`text-h1 cursor-pointer border-b-gray-5 py-4 border-b truncate font-['Tehreeri']`} onClick={() => download("Tehreeri", value, color)}>{value}</div>
-          <div style={{color: color}} className={`text-h1 cursor-pointer border-b-gray-5 py-4 border-b truncate font-['Qalm']`} onClick={() => download("Qalm", value, color)}>{value}</div>
-          <div style={{color: color}} className={`text-h1 cursor-pointer border-b-gray-5 py-4 border-b truncate font-['Shekastah']`} onClick={() => download("Shekastah", value, color)}>{value}</div>
+        const a = document.createElement("a");
+        a.href = text2png(value, {
+            font: `500px ${font}`,
+            localFontName: font,
+            color: rgbaColor,
+            output: 'dataURL',
+        });
+        a.download = `${value} - ${font}.png`;
+        a.click();
+    };
+
+    // Convert RGB object to RGBA with specified opacity
+    const rgbToRgba = (rgb, opacity) => `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${opacity})`;
+
+    // Create lighter and darker shades of the selected color
+    const lightColor = rgbToRgba(color, 0.1);
+    const darkerColor = rgbToRgba(color, 0.8);
+
+    return (
+        <div className="flex flex-col md:overflow-hidden md:flex-row min-h-screen text-right" style={{ backgroundColor: lightColor }}>
+
+            {/* Left Section */}
+            <div className="flex-1 py-8 px-4 md:p-12 overflow-y-auto">
+                
+                {/* Title */}
+                <h2 className="text-lg font-semibold mb-6 md:hidden" style={{ color: color }}>اردو</h2>
+
+                {/* Text Input */}
+                <div className="w-full flex flex-col mb-12">
+                    
+                    {/* Title */}
+                    <p className="text-[1rem] mb-6" style={{ color: color }}>آپ جو چاہتے ہیں ٹائپ کریں۔</p>
+                    
+                    {/* Input Field */}
+                    <input
+                        name="text"
+                        placeholder="یہاں لکھیں۔"
+                        className="py-3 px-6 text-right w-full text-base border-[#000] border-[0.1px] border-opacity-20 rounded-lg shadow-sm focus:outline-none"
+                        style={{
+                            backgroundColor: '#ffffff',
+                            color: color,
+                        }}
+                        onChange={onChange}
+                        value={value}
+                    />
+                </div>
+
+                {/* Font Selection */}
+                <div className="w-full">
+
+                    {/* Title */}
+                    <p className="text-[1rem] mb-6" style={{ color: color }}>ڈاؤن لوڈ کرنے کے لیے کسی کو منتخب کریں۔</p>
+                    
+                    {/* Font Tiles */}
+                    <div className="flex flex-col gap-3">
+                        {fonts.map((font) => (
+                            <Tile
+                                key={font}
+                                font={font}
+                                value={value}
+                                color={color}
+                                onClick={() => download(font, value, color)}
+                            />
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            {/* Right Section  */}
+            <div
+                className="hidden sticky top-0 md:block w-auto p-6 shadow-sm"
+                style={{ backgroundColor: lightColor, borderColor: darkerColor }}
+            >
+                {/* Title */}
+                <h2 className="text-lg font-semibold mb-6" style={{ color: color }}>اردو</h2>
+
+                {/* Color Picker */}
+                <div
+                    style={{
+                        borderRadius: "10px",
+                        overflow: "hidden"
+                    }}
+                >
+                    <SwatchesPicker
+                        height={600}
+                        color={color}
+                        onChangeComplete={(color) => setColor(color.rgb)}
+                    />
+                </div>
+            </div>
+
+            
+
+            {/* Color Picker */}
+            <div className="fixed bottom-4 right-4 md:hidden">
+
+                {/* Toggle */}
+                <button
+                    className="p-4 text-[1.5rem] rounded-2xl border-[#000] border-[0.1px] border-opacity-20 w-16 h-16 shadow-md bg-[#fff] flex justify-center items-center"
+                    onClick={() => setShowColorPicker(!showColorPicker)}
+                >
+                    🎨
+                </button>
+
+            </div>
+
+            {/* Color Picker Modal */}
+            {showColorPicker && (
+                <div
+                    className="fixed md:hidden animate-fade-in bottom-24 right-4 border-[#000] border-[0.1px] border-opacity-20 w-[90%] max-w-sm p-6 rounded-lg shadow-lg bg-[#fff] z-50"
+                >
+                    {/* Color Picker */}
+                    <SwatchesPicker
+                        height={300}
+                        color={color}
+                        width={"100%"}
+                        onChangeComplete={(color) => setColor(color.rgb)}
+                    />
+
+                    {/* Close */}
+                    <button
+                        className="mt-4 w-full py-2 rounded-md text-[#fff] shadow-md"
+                        style={{ backgroundColor: darkerColor }}
+                        onClick={() => setShowColorPicker(false)}
+                    >
+                        Close
+                    </button>
+                </div>
+            )}
         </div>
-      </div>
-    </div>
-  )
-}
+    );
+};
 
-// Export
 export default Home;
