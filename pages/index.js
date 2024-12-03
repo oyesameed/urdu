@@ -16,7 +16,7 @@ const Home = () => {
     const [value, setValue] = useState("");
 
     // State to store the selected color
-    const [color, setColor] = useState("rgb(0, 0, 0)");
+    const [color, setColor] = useState({ r: 0, g: 0, b: 0});
 
     // State to toggle of the color picker
     const [showColorPicker, setShowColorPicker] = useState(false);
