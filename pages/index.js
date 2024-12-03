@@ -13,7 +13,7 @@ const Home = () => {
     const fonts = ["Qamri", "Divangiry", "Tasmeem", "Kamran", "Abuzar", "Sadaf", "Ubaid", "Tehreeri", "Qalm", "Shekastah"];
 
     // State to store user input text
-    const [value, setValue] = useState("");
+    const [value, setValue] = useState("زندگی نہ ملیگی دوبارہ");
 
     // State to store the selected color
     const [color, setColor] = useState({ r: 0, g: 0, b: 0});

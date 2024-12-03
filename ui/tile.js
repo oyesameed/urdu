@@ -3,9 +3,6 @@ const Tile = ({ font, value, color, onClick }) => {
 
     // Convert color object to RGBA string
     const rgbaColor = `rgba(${color.r}, ${color.g}, ${color.b}, ${color.a})`;
-    
-    // Default value if not provided
-    value = value || "زندگی نہ ملیگی دوبارہ"
 
     // Render
     return (
